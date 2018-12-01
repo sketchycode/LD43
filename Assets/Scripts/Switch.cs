@@ -10,6 +10,7 @@ public class Switch : MonoBehaviour {
 	public bool stayDepressed;
 	public bool wasDepressed;
 
+	private Vector3 switchStartPosition;
 	public bool swapTriggers = false;
 	
 	// Update is called once per frame
@@ -42,6 +43,7 @@ public class Switch : MonoBehaviour {
 		performAction(true);
 		if(stayDepressed) {
 			rigid2D.isKinematic = true;
+			rigid2D.velocity = Vector2.zero;
 		}
 	}
 
