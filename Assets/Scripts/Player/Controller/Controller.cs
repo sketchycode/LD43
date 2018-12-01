@@ -28,9 +28,17 @@ public class Controller : MonoBehaviour {
 	private Vector2 slingJumpVelocity;
 	private CollisionInfo collisionInfo = new CollisionInfo();
 	private RaycastHit2D[] colliderHits = new RaycastHit2D[10];
+	private bool isMoving = false;
+	private bool isMovingRight = true;
 
 	public Action<JumpEvent> JumpTriggered = delegate { };
 	public Action<MassChangeEvent> MassLost = delegate { };
+
+	public bool JustLanded => collisionInfo.JustGrounded;
+	public bool JustJumped => collisionInfo.WasGrounded && !collisionInfo.IsGrounded;
+	public bool IsMoving => isMoving && IsGrounded;
+	public bool IsMovingRight => isMovingRight;
+	public bool IsGrounded => collisionInfo.IsGrounded;
 
 	void Start() {
 		rb2D = GetComponent<Rigidbody2D>();
@@ -44,6 +52,7 @@ public class Controller : MonoBehaviour {
 	void Update () {
 		UpdateCollisions();
 		var inputVec = Vector2.zero;
+		isMoving = false;
 		
 		if(collisionInfo.IsGrounded) {
 			if(Input.GetKey(KeyCode.A)) {
@@ -64,6 +73,11 @@ public class Controller : MonoBehaviour {
 
 		rb2D.velocity += slingJumpVelocity;
 		slingJumpVelocity = Vector2.zero;
+
+		isMoving = Mathf.Abs(rb2D.velocity.x) > 0.2f;
+		if(isMoving) {
+			isMovingRight = rb2D.velocity.x > 0;
+		}
 	}
 
 	private void OnMouseDown() {
@@ -102,7 +116,8 @@ public class Controller : MonoBehaviour {
 				jumpVel = jumpVel.normalized * jumpSpeedMax;
 			}
 
-			JumpTriggered(new JumpEvent() { JumpVelocity = jumpVel } );
+			var jumpMassScale = Mathf.Clamp(Mathf.InverseLerp(maxMass, minMass, mass), 0.25f, 1f);
+			JumpTriggered(new JumpEvent() { JumpVelocity = jumpVel * jumpMassScale } );
 		}
 	}
 
