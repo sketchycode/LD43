@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Switch : MonoBehaviour {
+	public Transform targetTransform;
 	public Rigidbody2D rigid2D;
 	public float depressLimit;
 	public Interactable actionObject;
@@ -24,7 +25,6 @@ public class Switch : MonoBehaviour {
 
 	void performDepressedAction() {
 		wasDepressed = true;
-		Debug.Log("OOF");
 		actionObject.Enable();
 		if(stayDepressed) {
 			rigid2D.isKinematic = true;
@@ -33,7 +33,6 @@ public class Switch : MonoBehaviour {
 
 	void performUnpressedAction() {
 		wasDepressed = false;
-		Debug.Log("UnOOOF");
 		actionObject.Disable();
 	}
 
@@ -42,14 +41,14 @@ public class Switch : MonoBehaviour {
 	}
 
 	float getDepressionAmount() {
-		return transform.localPosition.y;
+		return targetTransform.localPosition.y;
 	}
 
 	void OnDrawGizmosSelected() {
 		Gizmos.color = Color.red;
 		Gizmos.DrawLine(
-			transform.position + new Vector3(-1, depressLimit - 0.25f, 0), 
-			transform.position + new Vector3(1, depressLimit - 0.25f, 0)
+			targetTransform.position + new Vector3(-1, depressLimit - 0.25f, 0), 
+			targetTransform.position + new Vector3(1, depressLimit - 0.25f, 0)
 		);
 	}
 }

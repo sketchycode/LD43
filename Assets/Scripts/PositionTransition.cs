@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PositionTransition : Interactable {
+	public Transform targetTransform;
 	public Vector3 startPosition;
 	public Vector3 endPosition;
 	public bool shouldMoveToEnd;
+	public float toStartTransitionSpeed = 1.0f;
+	public float toEndTransitionSpeed = 1.0f;
 	
-	public float moveTimer = 0.0f;
+	private float moveTimer = 0.0f;
+
+	public void Start() {
+		if(shouldMoveToEnd) {
+			targetTransform.localPosition = endPosition;
+		}
+	}
 
 	public void Activate() {
 		shouldMoveToEnd = !shouldMoveToEnd;
@@ -15,9 +24,9 @@ public class PositionTransition : Interactable {
 
 	void Update () {
 		if(shouldMoveToEnd) {
-			moveTimer += Time.deltaTime;
+			moveTimer += Time.deltaTime * toEndTransitionSpeed;
 		} else {
-			moveTimer -= Time.deltaTime;
+			moveTimer -= Time.deltaTime * toStartTransitionSpeed;
 		}
 		moveTimer = Mathf.Clamp(moveTimer, 0, 1);
 		
@@ -25,12 +34,12 @@ public class PositionTransition : Interactable {
 	}
 
 	void Move() {
-		transform.localPosition = Vector3.Lerp(startPosition, endPosition, moveTimer);
+		targetTransform.localPosition = Vector3.Lerp(startPosition, endPosition, moveTimer);
 	}
 	
 	void OnDrawGizmos() {
-		Vector3 startOffset = transform.position + startPosition;
-		Vector3 endOffset = transform.position + endPosition;
+		Vector3 startOffset = targetTransform.position + startPosition;
+		Vector3 endOffset = targetTransform.position + endPosition;
 
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireCube(endOffset, Vector3.one);
