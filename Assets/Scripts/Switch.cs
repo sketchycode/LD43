@@ -9,6 +9,8 @@ public class Switch : MonoBehaviour {
 	public Interactable actionObject;
 	public bool stayDepressed;
 	public bool wasDepressed;
+
+	public bool swapTriggers = false;
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,9 +25,23 @@ public class Switch : MonoBehaviour {
 		}
 	}
 
+	void performAction(bool doEnable) {
+		if(swapTriggers) {
+			doEnable = !doEnable;
+		}
+
+		if(doEnable) {
+			Debug.Log("Press");
+			actionObject.Enable();
+		} else {
+			Debug.Log("UN-Press");
+			actionObject.Disable();
+		}
+	}
+
 	void performDepressedAction() {
 		wasDepressed = true;
-		actionObject.Enable();
+		performAction(true);
 		if(stayDepressed) {
 			rigid2D.isKinematic = true;
 		}
@@ -33,7 +49,7 @@ public class Switch : MonoBehaviour {
 
 	void performUnpressedAction() {
 		wasDepressed = false;
-		actionObject.Disable();
+		performAction(false);
 	}
 
 	bool isDepressed() {

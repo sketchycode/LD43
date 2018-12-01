@@ -15,11 +15,8 @@ public class PositionTransition : Interactable {
 	public void Start() {
 		if(shouldMoveToEnd) {
 			targetTransform.localPosition = endPosition;
+			moveTimer = 1.0f;
 		}
-	}
-
-	public void Activate() {
-		shouldMoveToEnd = !shouldMoveToEnd;
 	}
 
 	void Update () {
