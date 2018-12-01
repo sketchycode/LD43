@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-guid: d1961e280438a3d48bb53d4ad2941807
+guid: 3393e917f85f6a24386957cad6692508
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Spikes_01
-    21300002: Fire_01
-    21300004: Spikes_02
-    21300006: fire_0
-    21300008: fire_1
-    21300010: fire_2
+    21300000: poison_0
+    21300002: poison_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -101,61 +97,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fire_0
+      name: poison_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a319c26b503122a4ca00f9499c58fc05
+      spriteID: 962ab2015b5d53c47b8c54f5764cc20d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_1
+      name: poison_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 226babbe93198844287a9b2591579325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fire_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df90969bffd006e4b984c106060dc752
+      spriteID: 3fb6af82b88541d48b71a6c62f1f5697
       vertices: []
       indices: 
       edges: []
@@ -163,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3c86b918cdabb2f419b8be4c8113b02e
+    spriteID: 2e7d3df04ec5ae94eb378f575debb066
     vertices: []
     indices: 
     edges: []
