@@ -157,6 +157,11 @@ Prefab:
       propertyPath: actionObject
       value: 
       objectReference: {fileID: 1569128723}
+    - target: {fileID: 114849741945451338, guid: 0b571e827d42f8547814055d4fab896c,
+        type: 2}
+      propertyPath: stayDepressed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b571e827d42f8547814055d4fab896c, type: 2}
   m_IsPrefabAsset: 0
@@ -519,6 +524,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114086975223529062, guid: 74b5b021743e41f4983f197eea9f2e00,
+        type: 2}
+      propertyPath: toEndTransitionSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74b5b021743e41f4983f197eea9f2e00, type: 2}
   m_IsPrefabAsset: 0
@@ -624,14 +634,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.88, y: 0.75}
   m_EdgeRadius: 0
 --- !u!212 &1589991294
 SpriteRenderer:
@@ -668,8 +678,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 60fa9c92b5e757149bb2010ad9767c93, type: 3}
-  m_Color: {r: 0.6132076, g: 0.01683315, b: 0, a: 1}
+  m_Sprite: {fileID: 21300068, guid: 36c78eb4b0249294a852f0af1272d191, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
