@@ -11,20 +11,35 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1978225538728612}
   m_IsPrefabAsset: 1
---- !u!1 &1975756932470158
+--- !u!1 &1085057417239556
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4927757550135074}
-  - component: {fileID: 212332938248992250}
+  - component: {fileID: 4589641570579630}
   - component: {fileID: 61866958159398832}
   - component: {fileID: 50886272474951042}
   - component: {fileID: 231491077240665140}
   m_Layer: 9
   m_Name: Switch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1975756932470158
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4927757550135074}
+  - component: {fileID: 212332938248992250}
+  m_Layer: 9
+  m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +61,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4589641570579630
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085057417239556}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4927757550135074}
+  m_Father: {fileID: 4664482298153064}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4664482298153064
 Transform:
   m_ObjectHideFlags: 1
@@ -56,7 +85,7 @@ Transform:
   m_LocalPosition: {x: -0.21605414, y: -1.092, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4927757550135074}
+  - {fileID: 4589641570579630}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -67,10 +96,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1975756932470158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.624, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4664482298153064}
+  m_Father: {fileID: 4589641570579630}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50886272474951042
@@ -79,7 +108,7 @@ Rigidbody2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1975756932470158}
+  m_GameObject: {fileID: 1085057417239556}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -98,7 +127,7 @@ BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1975756932470158}
+  m_GameObject: {fileID: 1085057417239556}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -109,7 +138,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -129,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afc2ce3259b80944981f24b51dfd2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTransform: {fileID: 4927757550135074}
+  targetTransform: {fileID: 4589641570579630}
   rigid2D: {fileID: 50886272474951042}
   depressLimit: -0.08
   actionObject: {fileID: 0}
@@ -169,9 +198,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 60fa9c92b5e757149bb2010ad9767c93, type: 3}
-  m_Color: {r: 0, g: 0.6037736, b: 0.55657184, a: 1}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300046, guid: 36c78eb4b0249294a852f0af1272d191, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -186,7 +215,7 @@ SpringJoint2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1975756932470158}
+  m_GameObject: {fileID: 1085057417239556}
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 1
