@@ -1,5 +1,6 @@
 using System;
 
+[Serializable]
 public class CollisionInfo {
     public bool IsGrounded;
     public bool WasGrounded;
