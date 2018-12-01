@@ -5,7 +5,7 @@ using UnityEngine;
 public class Switch : MonoBehaviour {
 	public Rigidbody2D rigid2D;
 	public float depressLimit;
-	public GameObject actionObject;
+	public Interactable actionObject;
 	public bool stayDepressed;
 	public bool wasDepressed;
 	
@@ -17,17 +17,24 @@ public class Switch : MonoBehaviour {
 			}
 		} else if(!stayDepressed) {
 			if(!isDepressed()) {
-				wasDepressed = false;
+				performUnpressedAction();
 			}
 		}
 	}
 
 	void performDepressedAction() {
 		wasDepressed = true;
-		Debug.Log("send action to ActionObject");
+		Debug.Log("OOF");
+		actionObject.Enable();
 		if(stayDepressed) {
 			rigid2D.isKinematic = true;
 		}
+	}
+
+	void performUnpressedAction() {
+		wasDepressed = false;
+		Debug.Log("UnOOOF");
+		actionObject.Disable();
 	}
 
 	bool isDepressed() {
