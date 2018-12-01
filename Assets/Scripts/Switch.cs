@@ -31,10 +31,8 @@ public class Switch : MonoBehaviour {
 		}
 
 		if(doEnable) {
-			Debug.Log("Press");
 			actionObject.Enable();
 		} else {
-			Debug.Log("UN-Press");
 			actionObject.Disable();
 		}
 	}
