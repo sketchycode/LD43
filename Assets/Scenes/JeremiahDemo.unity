@@ -300,6 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 991662504}
   - component: {fileID: 991662505}
+  - component: {fileID: 991662506}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -333,6 +334,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimePatchPrefab: {fileID: 114489963031156402, guid: 06d422548edb35743bef290295d319cd,
     type: 2}
+--- !u!114 &991662506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991662503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5ca763c6d94b6429cbb4b74a16bb2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test: {fileID: 0}
 --- !u!1 &1015980116
 GameObject:
   m_ObjectHideFlags: 0
