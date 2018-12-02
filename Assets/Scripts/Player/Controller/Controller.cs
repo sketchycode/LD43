@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
 public class Controller : MonoBehaviour {
 	[Header("Speed")]
 	[SerializeField] private float maxSpeed;
 	[SerializeField] private float minSpeed;
+	[SerializeField] private float inSlimeSpeedFactor = 1.3f;
 	[Header("Mass")]
 	[SerializeField] private float maxMass;
 	[SerializeField] private float minMass;
@@ -34,6 +36,8 @@ public class Controller : MonoBehaviour {
 	private RaycastHit2D[] colliderHits = new RaycastHit2D[10];
 	private bool isMoving = false;
 	private bool isMovingRight = true;
+	private Tilemap platformsTilemap;
+	private Vector3Int lastTileTouched = new Vector3Int(-9999, -9999, 0);
 
 	public Action<JumpEvent> JumpTriggered = delegate { };
 	public Action<MassChangeEvent> MassLost = delegate { };
@@ -44,10 +48,14 @@ public class Controller : MonoBehaviour {
 	public bool IsMovingRight => isMovingRight;
 	public bool IsGrounded => collisionInfo.IsGrounded;
 	public bool CanJump => IsGrounded;
+	public bool IsInSlime => OccupiedSlimes.Count > 0;
+
+	public HashSet<SlimePatch> OccupiedSlimes = new HashSet<SlimePatch>();
 
 	void Start() {
 		rb2D = GetComponent<Rigidbody2D>();
 		collider2D = GetComponent<BoxCollider2D>();
+		platformsTilemap = FindObjectOfType<Tilemap>();
 		mass = maxMass;
 
 		JumpTriggered += OnJump;
@@ -72,6 +80,7 @@ public class Controller : MonoBehaviour {
 
 		if(inputVel != 0) {
 			var speed = Mathf.Lerp(maxSpeed, minSpeed, Mathf.InverseLerp(minMass, maxMass, mass));
+			speed *= IsInSlime ? inSlimeSpeedFactor : 1f;
 			inputVel *= (IsGrounded ? 1f : airMovementControlFactor) * speed;
 			if(Mathf.Sign(inputVel) != Mathf.Sign(rb2D.velocity.x)) {
 				rb2D.velocity = new Vector2(rb2D.velocity.x + inputVel, rb2D.velocity.y);
@@ -82,6 +91,9 @@ public class Controller : MonoBehaviour {
 
 			var massDelta = massLossWhileMoving * Time.deltaTime;
 			HandleMassLost(massDelta, MassChangeSourceType.Moving);
+		}
+		else if(IsGrounded && !IsInSlime) {
+			rb2D.velocity = new Vector2(0, rb2D.velocity.y);
 		}
 
 		rb2D.velocity += queuedJumpVelocity;
@@ -105,7 +117,6 @@ public class Controller : MonoBehaviour {
 	}
 
 	private void OnJump(JumpEvent e) {
-		Debug.Log($"jump triggered: {e.JumpVelocity} [{e.JumpVelocity.magnitude}]");
 		queuedJumpVelocity = e.JumpVelocity;
 		
 		var massLoss = e.JumpVelocity.magnitude * massLossWhileJumping;
@@ -156,9 +167,21 @@ public class Controller : MonoBehaviour {
 			for(int i=0; i<hitCounts; i++) {
 				if(colliderHits[i].transform != transform) {
 					collisionInfo.IsGrounded = true;
-					return;
+					if(colliderHits[i].transform.name == "Tilemap") {
+						PlaceSlimePatch(colliderHits[i]);
+					}
 				}
 			}
+		}
+	}
+
+	private void PlaceSlimePatch(RaycastHit2D hit2D) {
+		var hitCell = platformsTilemap.WorldToCell(new Vector2(transform.position.x, hit2D.point.y));
+		if(hitCell != lastTileTouched) {
+			if(platformsTilemap.GetTile(lastTileTouched) != null) {
+				GameManager.Instance.PlaceSlimeAtTilePosition(new Vector2Int(lastTileTouched.x, lastTileTouched.y + 1));
+			}
+			lastTileTouched = hitCell;
 		}
 	}
 
