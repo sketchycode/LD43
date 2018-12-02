@@ -472,7 +472,7 @@ MonoBehaviour:
   fade:
     fadePanel: {fileID: 114451248888815686}
     fadeSpeed: 1
-  cameraBoundsOffset: {x: 2, y: 0}
+  cameraBoundsOffset: {x: 0, y: 0}
 --- !u!114 &114445475299827424
 MonoBehaviour:
   m_ObjectHideFlags: 1
