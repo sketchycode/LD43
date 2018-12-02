@@ -7,5 +7,6 @@ public struct MassChangeEvent {
 
 public enum MassChangeSourceType {
     Moving,
-    Jumping
+    Jumping,
+    BabyChunk
 }

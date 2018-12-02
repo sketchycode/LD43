@@ -23,9 +23,13 @@ public class Controller : MonoBehaviour {
 	[SerializeField] private float airMovementControlFactor = 0.2f;
 	[Header("Collision")]
 	[SerializeField] private float groundCheckBoxHeight = 0.1f;
+	[Header("Misc")]
+	[SerializeField] private GameObject slimeChunkPrefab;
+	[SerializeField] private float visualMinMass = 0.4f;
 	
 	[Header("Readonly-no touchy")]
-	[SerializeField] private float mass;
+	[SerializeField] private float trueMass;
+	[SerializeField] private float visualMass; // interpolated value
 	[SerializeField] private CollisionInfo collisionInfo = new CollisionInfo();
 
 	private Rigidbody2D rb2D;
@@ -56,7 +60,8 @@ public class Controller : MonoBehaviour {
 		rb2D = GetComponent<Rigidbody2D>();
 		collider2D = GetComponent<BoxCollider2D>();
 		platformsTilemap = FindObjectOfType<Tilemap>();
-		mass = maxMass;
+		trueMass = maxMass;
+		visualMass = 1f;
 
 		JumpTriggered += OnJump;
 		MassLost += OnMassLost;
@@ -64,45 +69,9 @@ public class Controller : MonoBehaviour {
 
 	void Update () {
 		UpdateCollisions();
-		var inputVel = 0f;
-		isMoving = false;
-
-		if(CanJump && Input.GetKey(KeyCode.Space)) {
-			HandleJump(Vector2.up * keyboardJumpSpeed);
-		}
-		
-		if(Input.GetKey(KeyCode.A)) {
-			inputVel -= 1f;
-		}
-		if(Input.GetKey(KeyCode.D)) {
-			inputVel += 1f;
-		}
-
-		if(inputVel != 0) {
-			var speed = Mathf.Lerp(maxSpeed, minSpeed, Mathf.InverseLerp(minMass, maxMass, mass));
-			speed *= IsInSlime ? inSlimeSpeedFactor : 1f;
-			inputVel *= (IsGrounded ? 1f : airMovementControlFactor) * speed;
-			if(Mathf.Sign(inputVel) != Mathf.Sign(rb2D.velocity.x)) {
-				rb2D.velocity = new Vector2(rb2D.velocity.x + inputVel, rb2D.velocity.y);
-			}
-			else if(Mathf.Abs(speed) > Mathf.Abs(rb2D.velocity.x)) {
-				rb2D.velocity = new Vector2(inputVel, rb2D.velocity.y);
-			}
-
-			var massDelta = massLossWhileMoving * Time.deltaTime;
-			HandleMassLost(massDelta, MassChangeSourceType.Moving);
-		}
-		else if(IsGrounded && !IsInSlime) {
-			rb2D.velocity = new Vector2(0, rb2D.velocity.y);
-		}
-
-		rb2D.velocity += queuedJumpVelocity;
-		queuedJumpVelocity = Vector2.zero;
-
-		isMoving = Mathf.Abs(rb2D.velocity.x) > 0.2f;
-		if(isMoving) {
-			isMovingRight = rb2D.velocity.x > 0;
-		}
+		UpdateMovement();
+		UpdateVisualMass();
+		CheckForOtherThings();
 	}
 
 	private void OnMouseDown() {
@@ -143,15 +112,15 @@ public class Controller : MonoBehaviour {
 	}
 
 	private void HandleJump(Vector2 jumpVel) {
-		var jumpMassScale = Mathf.Clamp(Mathf.InverseLerp(maxMass, minMass, mass), 0.25f, 1f);
+		var jumpMassScale = Mathf.Clamp(Mathf.InverseLerp(maxMass, minMass, trueMass), 0.66f, 1f);
 		JumpTriggered(new JumpEvent() { JumpVelocity = jumpVel * jumpMassScale } );
 	}
 
 	private void HandleMassLost(float massLoss, MassChangeSourceType massChangeSource) {
-		mass -= massLoss;
+		trueMass -= massLoss;
 		var massChangeEvent = new MassChangeEvent() {
 			MassDelta = -massLoss,
-			NewMass = mass,
+			NewMass = trueMass,
 			MassChangeSource = massChangeSource
 		};
 		MassLost(massChangeEvent);
@@ -175,9 +144,68 @@ public class Controller : MonoBehaviour {
 		}
 	}
 
+	private void UpdateMovement() {
+		var inputVel = 0f;
+		isMoving = false;
+
+		if(CanJump && Input.GetKeyDown(KeyCode.Space)) {
+			HandleJump(Vector2.up * keyboardJumpSpeed);
+		}
+		
+		if(Input.GetKey(KeyCode.A)) {
+			inputVel -= 1f;
+		}
+		if(Input.GetKey(KeyCode.D)) {
+			inputVel += 1f;
+		}
+
+		if(inputVel != 0) {
+			var speed = Mathf.Lerp(maxSpeed, minSpeed, Mathf.InverseLerp(minMass, maxMass, trueMass));
+			speed *= IsInSlime ? inSlimeSpeedFactor : 1f;
+			inputVel *= (IsGrounded ? 1f : airMovementControlFactor) * speed;
+			if(Mathf.Sign(inputVel) != Mathf.Sign(rb2D.velocity.x)) {
+				rb2D.velocity = new Vector2(rb2D.velocity.x + inputVel, rb2D.velocity.y);
+			}
+			else if(Mathf.Abs(speed) > Mathf.Abs(rb2D.velocity.x)) {
+				rb2D.velocity = new Vector2(inputVel, rb2D.velocity.y);
+			}
+
+			var massDelta = massLossWhileMoving * Time.deltaTime;
+			HandleMassLost(massDelta, MassChangeSourceType.Moving);
+		}
+		else if(IsGrounded && !IsInSlime) {
+			rb2D.velocity = new Vector2(0, rb2D.velocity.y);
+		}
+
+		rb2D.velocity += queuedJumpVelocity;
+		queuedJumpVelocity = Vector2.zero;
+
+		isMoving = Mathf.Abs(rb2D.velocity.x) > 0.2f;
+		if(isMoving) {
+			isMovingRight = rb2D.velocity.x > 0;
+		}
+	}
+
+	private void UpdateVisualMass() {
+		var interpMass = Mathf.InverseLerp(minMass, maxMass, trueMass);
+		var interpVisualMass = Mathf.Lerp(visualMinMass, 1, interpMass);
+		visualMass = Mathf.Lerp(visualMass, interpVisualMass, 0.05f);
+		transform.localScale = Vector3.one * visualMass;
+	}
+
+	private void CheckForOtherThings() {
+		if(Input.GetKeyDown(KeyCode.S)) {
+			BirthSlimeBaby();
+		}
+		if(Input.GetKey(KeyCode.Escape)) {
+			GameManager.OpenPauseMenu();
+		}
+	}
+
 	private void PlaceSlimePatch(RaycastHit2D hit2D) {
 		var hitCell = platformsTilemap.WorldToCell(new Vector2(transform.position.x, hit2D.point.y));
-		if(hitCell != lastTileTouched) {
+		if(hitCell != lastTileTouched || collisionInfo.JustGrounded) {
+			if(collisionInfo.JustGrounded) { lastTileTouched = hitCell; }
 			if(platformsTilemap.GetTile(lastTileTouched) != null) {
 				GameManager.Instance.PlaceSlimeAtTilePosition(new Vector2Int(lastTileTouched.x, lastTileTouched.y + 1));
 			}
@@ -192,5 +220,10 @@ public class Controller : MonoBehaviour {
 			Vector2 size = new Vector2(collider2D.size.x, groundCheckBoxHeight);
 			Gizmos.DrawWireCube(bottomCenter, new Vector2(collider2D.size.x, groundCheckBoxHeight));
 		}
+	}
+
+	public void BirthSlimeBaby() {
+		GameObject.Instantiate(slimeChunkPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+		HandleMassLost(1f, MassChangeSourceType.BabyChunk);
 	}
 }
