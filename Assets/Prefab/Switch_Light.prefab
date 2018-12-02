@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50886272474951042}
   - component: {fileID: 231491077240665140}
   m_Layer: 9
-  m_Name: Switch
+  m_Name: SwitchCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085057417239556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4927757550135074}
@@ -81,8 +81,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1978225538728612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.21605414, y: -1.092, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4589641570579630}
@@ -160,10 +160,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 4589641570579630}
   rigid2D: {fileID: 50886272474951042}
-  depressLimit: -0.08
+  depressLimit: -0.73
   actionObject: {fileID: 0}
   stayDepressed: 0
   wasDepressed: 0
+  swapTriggers: 0
 --- !u!212 &212332938248992250
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -199,12 +200,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300046, guid: 36c78eb4b0249294a852f0af1272d191, type: 3}
+  m_Sprite: {fileID: 21300046, guid: c6fe6462d879e984b9bd7302428d15c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -226,6 +227,6 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.1131681
+  m_Distance: 4.875705
   m_DampingRatio: 0
   m_Frequency: 5
