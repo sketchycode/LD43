@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Door Brush
   m_EditorClassIdentifier: 
   m_Prefabs:
-  - {fileID: 1077071942044202, guid: 114b0f466561c724d9429388286026a1, type: 2}
+  - {fileID: 1663409219314994, guid: 114b0f466561c724d9429388286026a1, type: 2}
   m_PerlinScale: 0.5
   m_Z: 0
