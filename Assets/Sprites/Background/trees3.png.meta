@@ -1,24 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 310cc1af0021e9a469b62c9f5e2a503f
-=======
-<<<<<<< HEAD
-guid: c2ed8267c5488f845bd545b5fc93c33f
-=======
-<<<<<<< HEAD
-guid: 310cc1af0021e9a469b62c9f5e2a503f
-=======
-guid: 0cef089beec1c334d86e6b5774884da4
->>>>>>> 67573e839bc7feb7392732880e428b2b99334ec5
->>>>>>> 55d209e5967ce9921bde94a8797d6237fdb5d561
->>>>>>> b66f3cddf8750aecdcca06e7cd70da192a939d37
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -43,16 +31,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
-  nPOTScale: 0
+    wrapU: -1
+    wrapV: -1
+    wrapW: -1
+  nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -61,9 +49,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -109,7 +97,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 37a57712ec037c94386b720fd626ee0d
+    spriteID: 
     vertices: []
     indices: 
     edges: []
