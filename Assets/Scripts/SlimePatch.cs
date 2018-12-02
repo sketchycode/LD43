@@ -9,6 +9,7 @@ public class SlimePatch : MonoBehaviour {
 
 	private float currentLifetime = 0;
 	private bool isDissolving = false;
+	private Controller player;
 
 	public Action<SlimePatch> DissolveStarting = delegate { };
 	public Action<SlimePatch> Dissolved = delegate { };
@@ -41,13 +42,14 @@ public class SlimePatch : MonoBehaviour {
 
 	public void OnDissolveAnimCompleted() {
 		Dissolved(this);
+		if(player) { player.OccupiedSlimes.Remove(this); }
 		GameObject.Destroy(gameObject, 0.1f);
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
 		var player = other.GetComponent<Controller>();
 		if(player != null) {
-			Debug.Log("in slime");
+			this.player = player;
 			player.OccupiedSlimes.Add(this);
 		}
 	}
@@ -55,7 +57,6 @@ public class SlimePatch : MonoBehaviour {
 	private void OnTriggerExit2D(Collider2D other) {
 		var player = other.GetComponent<Controller>();
 		if(player != null) {
-			Debug.Log("out of slime");
 			player.OccupiedSlimes.Remove(this);
 		}		
 	}

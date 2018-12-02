@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour {
 	public static Action PlayerDied = delegate { };
+    public static Action OpenPauseMenu = delegate { };
     public static GameManager Instance;
 
     [SerializeField] private SlimePatch slimePatchPrefab;
