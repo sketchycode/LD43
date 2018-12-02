@@ -9,8 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a526b7ff6c0deb44b8eb5e3c39bdf75, type: 3}
-  m_Name: SpawnBrush
+  m_Name: Spike Brush
   m_EditorClassIdentifier: 
-  m_Prefabs: []
+  m_Prefabs:
+  - {fileID: 1365678733263330, guid: 93c723ce7c28b2b4590f71a3c0c5b6c5, type: 2}
   m_PerlinScale: 0.5
   m_Z: 0

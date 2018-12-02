@@ -9,8 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a526b7ff6c0deb44b8eb5e3c39bdf75, type: 3}
-  m_Name: WinBrush
+  m_Name: Win Brush
   m_EditorClassIdentifier: 
-  m_Prefabs: []
+  m_Prefabs:
+  - {fileID: 1253467235285282, guid: 086cb32bb7794374e9450831bb07125c, type: 2}
   m_PerlinScale: 0.5
   m_Z: 0
