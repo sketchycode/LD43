@@ -12,10 +12,15 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(fade.FadeIn());
+		GameManager.Instance.SetCamera(this);
 	}
 
 	void Update() {
 		TrackTarget();
+	}
+
+	public void SetTarget(Transform newTarget) {
+		target = newTarget;
 	}
 
 	void TrackTarget() {

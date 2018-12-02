@@ -17,6 +17,7 @@ public class PlayerSpawner : MonoBehaviour {
 			yield return null;	
 		}
 		anim.SetBool("doSpawn", false);
-		GameObject.Instantiate(player, spawnLocation.position, Quaternion.identity);
+		GameObject newPlayer = GameObject.Instantiate(player, spawnLocation.position, Quaternion.identity);
+		GameManager.Instance.SetPlayer(newPlayer);
 	}
 }
