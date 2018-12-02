@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void PlaceSlimeAtTilePosition(Vector2Int pos) {
+        Debug.Log("Slime time");
         Debug.DrawLine(new Vector2(pos.x + 0.2f, pos.y), new Vector2(pos.x - 0.2f, pos.y), Color.green);
         Debug.DrawLine(new Vector2(pos.x, pos.y + 0.2f), new Vector2(pos.x, pos.y - 0.2f), Color.green);
         var positionHash = pos.x * 10000 + pos.y;

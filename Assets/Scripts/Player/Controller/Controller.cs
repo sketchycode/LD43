@@ -167,7 +167,7 @@ public class Controller : MonoBehaviour {
 			for(int i=0; i<hitCounts; i++) {
 				if(colliderHits[i].transform != transform) {
 					collisionInfo.IsGrounded = true;
-					if(colliderHits[i].transform.name == "Platforms") {
+					if(colliderHits[i].transform.name == "Tilemap") {
 						PlaceSlimePatch(colliderHits[i]);
 					}
 				}
