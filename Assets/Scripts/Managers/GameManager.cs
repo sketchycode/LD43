@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	public static Action PlayerDied = delegate { };
+    public static Action OpenPauseMenu = delegate { };
     public static GameManager Instance;
     private GameObject player;
     private CameraController sceneCamera;
