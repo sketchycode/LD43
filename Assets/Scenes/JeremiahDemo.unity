@@ -268,26 +268,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114655319026892094, guid: e805d7c1e492be34c820e5800425c642,
-        type: 2}
-      propertyPath: jumpSpeedMin
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114655319026892094, guid: e805d7c1e492be34c820e5800425c642,
-        type: 2}
-      propertyPath: keyboardJumpSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114655319026892094, guid: e805d7c1e492be34c820e5800425c642,
-        type: 2}
-      propertyPath: jumpSpeedMax
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 50313322962102868, guid: e805d7c1e492be34c820e5800425c642,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e805d7c1e492be34c820e5800425c642, type: 2}
   m_IsPrefabAsset: 0

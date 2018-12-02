@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614361401817192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.5, y: 3.124, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &61233369756205864
 BoxCollider2D:
@@ -137,15 +137,17 @@ MonoBehaviour:
   minMass: 2
   massLossWhileMoving: 0.5
   massLossWhileJumping: 0.05
-  jumpSpeedMax: 8
-  jumpSpeedMin: 1
+  jumpSpeedMax: 30
+  jumpSpeedMin: 10
   slingShotScalingFactor: 10
-  keyboardJumpSpeed: 4
+  keyboardJumpSpeed: 10
   airMovementControlFactor: 0.2
   groundCheckBoxHeight: 0.1
   slimeChunkPrefab: {fileID: 1750241121003584, guid: 3e1a95158804ddc4fa788e9d8db3eeca,
     type: 2}
-  mass: 10
+  visualMinMass: 0.4
+  trueMass: 0
+  visualMass: 0
   collisionInfo:
     IsGrounded: 0
     WasGrounded: 0
