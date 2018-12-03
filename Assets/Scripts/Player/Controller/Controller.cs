@@ -137,7 +137,7 @@ public class Controller : MonoBehaviour {
 		collisionInfo.Reset();
 
 		Vector2 bottomCenter = new Vector2(collider2D.bounds.center.x, collider2D.bounds.min.y);
-		Vector2 size = new Vector2(collider2D.size.x, groundCheckBoxHeight);
+		Vector2 size = new Vector2(collider2D.size.x * transform.localScale.x, groundCheckBoxHeight);
 		var hitCounts = Physics2D.BoxCastNonAlloc(bottomCenter, size, 0, Vector2.zero, colliderHits);
 		if(hitCounts > 0) {
 			for(int i=0; i<hitCounts; i++) {
