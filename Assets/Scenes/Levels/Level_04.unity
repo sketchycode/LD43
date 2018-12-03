@@ -251,36 +251,6 @@ Prefab:
       propertyPath: actionObject
       value: 
       objectReference: {fileID: 1502383343}
-    - target: {fileID: 231491077240665140, guid: 0b571e827d42f8547814055d4fab896c,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: -6.5102797
-      objectReference: {fileID: 0}
-    - target: {fileID: 231491077240665140, guid: 0b571e827d42f8547814055d4fab896c,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 4.130889
-      objectReference: {fileID: 0}
-    - target: {fileID: 231491077240665140, guid: 0b571e827d42f8547814055d4fab896c,
-        type: 2}
-      propertyPath: m_Distance
-      value: 1.2809303
-      objectReference: {fileID: 0}
-    - target: {fileID: 114849741945451338, guid: 0b571e827d42f8547814055d4fab896c,
-        type: 2}
-      propertyPath: switchDown
-      value: 
-      objectReference: {fileID: 8300000, guid: 95fcf45a6e2292346ab358585791140e, type: 3}
-    - target: {fileID: 114849741945451338, guid: 0b571e827d42f8547814055d4fab896c,
-        type: 2}
-      propertyPath: switchUp
-      value: 
-      objectReference: {fileID: 8300000, guid: 95fcf45a6e2292346ab358585791140e, type: 3}
-    - target: {fileID: 114849741945451338, guid: 0b571e827d42f8547814055d4fab896c,
-        type: 2}
-      propertyPath: switchSound
-      value: 
-      objectReference: {fileID: 728291213}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b571e827d42f8547814055d4fab896c, type: 2}
   m_IsPrefabAsset: 0
@@ -514,106 +484,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4247501596906268, guid: bfbf4bf2f9b08e64f88fa05a8ba88ebd,
     type: 2}
   m_PrefabInternal: {fileID: 283496580}
---- !u!1 &728291211 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1978225538728612, guid: 0b571e827d42f8547814055d4fab896c,
-    type: 2}
-  m_PrefabInternal: {fileID: 130194528}
---- !u!82 &728291213
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 728291211}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!4 &757874573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4247501596906268, guid: bfbf4bf2f9b08e64f88fa05a8ba88ebd,
@@ -1098,7 +968,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4817267101725536, guid: 114b0f466561c724d9429388286026a1, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 114b0f466561c724d9429388286026a1, type: 2}
