@@ -37,8 +37,8 @@ public class PositionTransition : Interactable {
 	}
 
 	void PlaySound(AudioClip sound) {
+		if(!moveSound) { return; }
 		if(moveTimer < 0.1f || moveTimer > 0.9f) {
-			Debug.Log("SHUTUP");
 			moveSound.Stop();
 			return;
 		}

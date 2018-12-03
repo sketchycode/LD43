@@ -162,21 +162,6 @@ Prefab:
       propertyPath: actionObject
       value: 
       objectReference: {fileID: 1011978316}
-    - target: {fileID: 231491077240665140, guid: 0b571e827d42f8547814055d4fab896c,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: -3.5635684
-      objectReference: {fileID: 0}
-    - target: {fileID: 231491077240665140, guid: 0b571e827d42f8547814055d4fab896c,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 2.5202427
-      objectReference: {fileID: 0}
-    - target: {fileID: 231491077240665140, guid: 0b571e827d42f8547814055d4fab896c,
-        type: 2}
-      propertyPath: m_Distance
-      value: 1.6714519
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b571e827d42f8547814055d4fab896c, type: 2}
   m_IsPrefabAsset: 0
@@ -306,16 +291,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4817267101725536, guid: 114b0f466561c724d9429388286026a1, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114034223353364486, guid: 114b0f466561c724d9429388286026a1,
-        type: 2}
-      propertyPath: toStartTransitionSpeed
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114034223353364486, guid: 114b0f466561c724d9429388286026a1,
-        type: 2}
-      propertyPath: toEndTransitionSpeed
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
