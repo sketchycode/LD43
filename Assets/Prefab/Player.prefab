@@ -333,6 +333,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: b76c7445715255345b76baeb1d1f905c, type: 3}
   landSound: {fileID: 8300000, guid: 49c48cf6d35e13b43a3ea49890b061d9, type: 3}
   dieSound: {fileID: 8300000, guid: 3fdba7c20c4f9924cb3409dd71f5464c, type: 3}
+  birthSound: {fileID: 8300000, guid: b07cf0d2c568df94f9d46ecbe7de89e3, type: 3}
 --- !u!212 &212503070527303996
 SpriteRenderer:
   m_ObjectHideFlags: 1

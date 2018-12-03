@@ -63,8 +63,8 @@ public class Controller : MonoBehaviour {
 	public AudioClip moveSound;
 	public AudioClip jumpSound;
 	public AudioClip landSound;
-	
 	public AudioClip dieSound;
+	public AudioClip birthSound;
 
 	void Start() {
 		rb2D = GetComponent<Rigidbody2D>();
@@ -245,6 +245,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	public void BirthSlimeBaby() {
+		PlayOnce(birthSound);
 		GameObject.Instantiate(slimeChunkPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
 		HandleMassLost(1f, MassChangeSourceType.BabyChunk);
 	}
