@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerWinPoint : MonoBehaviour {
-	public string nextLevelName;
 	public Animator anim;
 
 	private bool didWin = false;
@@ -23,8 +22,7 @@ public class PlayerWinPoint : MonoBehaviour {
 	}
 
 	void loadNextLevel() {
-		Debug.Log("Loading next level: " + nextLevelName);
-		SceneManager.LoadScene(nextLevelName);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)

@@ -237,6 +237,8 @@ public class Controller : MonoBehaviour {
 		if(!isDead) {
 			isDead = true;
 			GameManager.PlayerDied();
+			rb2D.velocity = Vector3.zero;
+			rb2D.isKinematic = true;
 			Destroy(gameObject, 0.5f);
 		}
 	}
