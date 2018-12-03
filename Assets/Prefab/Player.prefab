@@ -222,7 +222,7 @@ MonoBehaviour:
   jumpSpeedMin: 10
   slingShotScalingFactor: 10
   keyboardJumpSpeed: 10
-  airMovementControlFactor: 0.5
+  airMovementControlFactor: 1
   groundCheckBoxHeight: 0.1
   slimeChunkPrefab: {fileID: 1750241121003584, guid: 3e1a95158804ddc4fa788e9d8db3eeca,
     type: 2}

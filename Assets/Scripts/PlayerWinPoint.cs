@@ -24,6 +24,7 @@ public class PlayerWinPoint : MonoBehaviour {
 	}
 
 	void loadNextLevel() {
+		PlayerPrefs.SetInt("lastLevel", SceneManager.GetActiveScene().buildIndex + 1);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
