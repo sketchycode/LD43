@@ -79,14 +79,14 @@ public class Controller : MonoBehaviour {
 
 	void Update () {
 		if(!isDead) {
+			UpdateCollisions();
+			UpdateMovement();
 			UpdateVisualMass();
 			CheckForOtherThings();
 		}
 	}
 
 	void FixedUpdate() {
-		UpdateCollisions();
-		UpdateMovement();
 		if(JustLanded) {
 			PlayOnce(landSound);
 		}
