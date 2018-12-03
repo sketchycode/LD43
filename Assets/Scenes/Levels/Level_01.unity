@@ -152,11 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114720434420151570, guid: 086cb32bb7794374e9450831bb07125c,
-        type: 2}
-      propertyPath: nextLevelName
-      value: Level_02
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 086cb32bb7794374e9450831bb07125c, type: 2}
   m_IsPrefabAsset: 0
@@ -411,7 +406,19 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1880633092}
     m_ColliderPaths:
-    - - X: -10000000
+    - - X: 60000000
+        Y: -40000000
+      - X: 60000000
+        Y: 110000000
+      - X: 50000000
+        Y: 110000000
+      - X: 50000000
+        Y: 0
+      - X: 40000000
+        Y: 0
+      - X: 40000000
+        Y: 10000000
+      - X: -10000000
         Y: 10000000
       - X: -10000000
         Y: 0
@@ -447,18 +454,6 @@ CompositeCollider2D:
         Y: 110000000
       - X: -90000000
         Y: -40000000
-      - X: 60000000
-        Y: -40000000
-      - X: 60000000
-        Y: 110000000
-      - X: 50000000
-        Y: 110000000
-      - X: 50000000
-        Y: 0
-      - X: 40000000
-        Y: 0
-      - X: 40000000
-        Y: 10000000
   m_CompositePaths:
     m_Paths:
     - - {x: 6, y: 11}
