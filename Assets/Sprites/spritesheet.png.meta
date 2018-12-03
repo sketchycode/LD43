@@ -67,7 +67,7 @@ TextureImporter:
     21300124: scale_left
     21300126: scale_right
     21300128: scale_center
-    21300130: spritesheet_0
+    21300130: floor_sand_01
     21300132: door_01
     21300134: win_bin_01
     21300136: floor_wall_01
@@ -76,6 +76,11 @@ TextureImporter:
     21300142: floor_clock_01
     21300144: floor_clock_02
     21300146: floor_clock_03
+    21300148: floor_sand_02
+    21300150: floor_sand_03
+    21300152: wall_sand_01
+    21300154: wall_sand_02
+    21300156: wall_sand_03
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -1573,6 +1578,126 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4b86835e454b547469811fe42e4d81ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_sand_01
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 87
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ebe5cdd9e44d146a2b97bee747d156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_sand_02
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 87
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76878b613a296614d933ee93de123762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_sand_03
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 87
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1e3ff34b172a54ea295a7720747f01
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_sand_01
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 55
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc37eb6af92963448f0a184f3d8345b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_sand_02
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 87
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726dd693266928d428665301cac61368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_sand_03
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 119
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235cf52f2696ed540b2006109c76f63a
       vertices: []
       indices: 
       edges: []
