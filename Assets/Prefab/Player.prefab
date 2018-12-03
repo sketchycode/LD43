@@ -222,7 +222,7 @@ MonoBehaviour:
   jumpSpeedMin: 10
   slingShotScalingFactor: 10
   keyboardJumpSpeed: 10
-  airMovementControlFactor: 1
+  airMovementControlFactor: 0.5
   groundCheckBoxHeight: 0.1
   slimeChunkPrefab: {fileID: 1750241121003584, guid: 3e1a95158804ddc4fa788e9d8db3eeca,
     type: 2}
@@ -232,6 +232,11 @@ MonoBehaviour:
   collisionInfo:
     IsGrounded: 0
     WasGrounded: 0
+  playerSound: {fileID: 82500166042711540}
+  moveSound: {fileID: 8300000, guid: d2ff52c4aef29064ea8e260d60127afc, type: 3}
+  jumpSound: {fileID: 8300000, guid: b76c7445715255345b76baeb1d1f905c, type: 3}
+  landSound: {fileID: 8300000, guid: 49c48cf6d35e13b43a3ea49890b061d9, type: 3}
+  dieSound: {fileID: 8300000, guid: 3fdba7c20c4f9924cb3409dd71f5464c, type: 3}
 --- !u!212 &212503070527303996
 SpriteRenderer:
   m_ObjectHideFlags: 1
