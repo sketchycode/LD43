@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public IEnumerator ResetScene() {
+        StartCoroutine(sceneCamera.fade.FadeOut());
         for(float timer = 0; timer < 1.5f; timer += Time.deltaTime) {
             yield return null;
         }
