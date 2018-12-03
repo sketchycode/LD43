@@ -6,7 +6,7 @@ public class Switch : MonoBehaviour {
 	public Transform targetTransform;
 	public Rigidbody2D rigid2D;
 	public float depressLimit;
-	public Interactable actionObject;
+	public Interactable[] actionObjects;
 	public bool stayDepressed;
 	public bool wasDepressed;
 
@@ -44,10 +44,14 @@ public class Switch : MonoBehaviour {
 		}
 
 		if(doEnable) {
-			actionObject.Enable();
+			foreach(Interactable thing in actionObjects) {
+				thing.Enable();
+			}
 		} else {
-			actionObject.Disable();
-		}
+			foreach(Interactable thing in actionObjects) {
+				thing.Disable();
+			}
+		}	
 	}
 
 	void performDepressedAction() {
