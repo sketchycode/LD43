@@ -224,7 +224,6 @@ public class Controller : MonoBehaviour {
 		if(collider2D != null) {
 			Gizmos.color = Color.red;
 			Vector2 bottomCenter = new Vector2(collider2D.bounds.center.x, collider2D.bounds.min.y);
-			Vector2 size = new Vector2(collider2D.size.x, groundCheckBoxHeight);
 			Gizmos.DrawWireCube(bottomCenter, new Vector2(collider2D.size.x, groundCheckBoxHeight));
 		}
 	}

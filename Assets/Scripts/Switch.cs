@@ -12,6 +12,10 @@ public class Switch : MonoBehaviour {
 
 	private Vector3 switchStartPosition;
 	public bool swapTriggers = false;
+
+	public AudioSource switchSound;
+	public AudioClip switchDown;
+	public AudioClip switchUp;
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,6 +28,14 @@ public class Switch : MonoBehaviour {
 				performUnpressedAction();
 			}
 		}
+	}
+
+	void PlayDepressedSound() {
+		switchSound.PlayOneShot(switchDown);
+	}
+
+	void PlayUnpressedSound() {
+		switchSound.PlayOneShot(switchUp);
 	}
 
 	void performAction(bool doEnable) {
@@ -41,6 +53,7 @@ public class Switch : MonoBehaviour {
 	void performDepressedAction() {
 		wasDepressed = true;
 		performAction(true);
+		PlayDepressedSound();
 		if(stayDepressed) {
 			rigid2D.isKinematic = true;
 			rigid2D.velocity = Vector2.zero;
@@ -49,6 +62,7 @@ public class Switch : MonoBehaviour {
 
 	void performUnpressedAction() {
 		wasDepressed = false;
+		PlayUnpressedSound();
 		performAction(false);
 	}
 
