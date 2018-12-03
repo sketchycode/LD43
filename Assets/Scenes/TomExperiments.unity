@@ -113,11 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!23 &42594418 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 23661705505175936, guid: e1094739edab8314397e0c4e80d96a9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1940992788}
 --- !u!1001 &55838061
 Prefab:
   m_ObjectHideFlags: 0
@@ -164,32 +159,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfbf4bf2f9b08e64f88fa05a8ba88ebd, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &147771555 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1945047600355456, guid: e1094739edab8314397e0c4e80d96a9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1940992788}
---- !u!114 &147771561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 147771555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bd776a93487789409b3f11736438bb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Layers:
-  - render: {fileID: 2084332366}
-    horizontalShift: 0.006
-    verticalShift: 0.005
-  - render: {fileID: 1541065227}
-    horizontalShift: 0.002
-    verticalShift: 0
-  - render: {fileID: 42594418}
-    horizontalShift: 0.02
-    verticalShift: 0
 --- !u!1001 &153754776
 Prefab:
   m_ObjectHideFlags: 0
@@ -2839,11 +2808,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93c723ce7c28b2b4590f71a3c0c5b6c5, type: 2}
   m_IsPrefabAsset: 0
---- !u!23 &1541065227 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 23751682295499332, guid: e1094739edab8314397e0c4e80d96a9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1940992788}
 --- !u!1001 &1652533527
 Prefab:
   m_ObjectHideFlags: 0
@@ -3094,20 +3058,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 114620180037180772, guid: e1094739edab8314397e0c4e80d96a9f,
-        type: 2}
-      propertyPath: Layers.Array.data[0].render
-      value: 
-      objectReference: {fileID: 2084332366}
-    - target: {fileID: 224098241605910748, guid: e1094739edab8314397e0c4e80d96a9f,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4492480546129114, guid: e1094739edab8314397e0c4e80d96a9f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 10.07
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1094739edab8314397e0c4e80d96a9f, type: 2}
   m_IsPrefabAsset: 0
@@ -3200,8 +3150,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4775293243691342, guid: 93c723ce7c28b2b4590f71a3c0c5b6c5,
     type: 2}
   m_PrefabInternal: {fileID: 2016118896}
---- !u!23 &2084332366 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 23748897097634056, guid: e1094739edab8314397e0c4e80d96a9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1940992788}
