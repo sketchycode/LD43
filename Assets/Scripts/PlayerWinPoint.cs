@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerWinPoint : MonoBehaviour {
 	public Animator anim;
+	public AudioSource winSound;
 
 	private bool didWin = false;
 
@@ -13,6 +14,7 @@ public class PlayerWinPoint : MonoBehaviour {
 	}
 
 	IEnumerator Win() {
+		winSound.Play();
 		anim.StopPlayback(); //restores control of animations from animator
 		for(float timer = 0; timer < 1.0f; timer += Time.deltaTime) {
 			yield return null;	
