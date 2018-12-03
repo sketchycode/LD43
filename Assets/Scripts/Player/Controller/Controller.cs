@@ -214,7 +214,7 @@ public class Controller : MonoBehaviour {
 		if(hitCell != lastTileTouched || collisionInfo.JustGrounded) {
 			if(collisionInfo.JustGrounded) { lastTileTouched = hitCell; }
 			if(platformsTilemap.GetTile(lastTileTouched) != null) {
-				GameManager.Instance.PlaceSlimeAtTilePosition(new Vector2Int(lastTileTouched.x, lastTileTouched.y + 1));
+				GameManager.Instance.PlaceSlimeAtTilePosition(new Vector2Int(lastTileTouched.x, lastTileTouched.y));
 			}
 			lastTileTouched = hitCell;
 		}
