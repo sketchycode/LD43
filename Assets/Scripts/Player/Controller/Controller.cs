@@ -58,6 +58,14 @@ public class Controller : MonoBehaviour {
 
 	public HashSet<SlimePatch> OccupiedSlimes = new HashSet<SlimePatch>();
 
+	[Header("Sounds")]
+	public AudioSource playerSound;
+	public AudioClip moveSound;
+	public AudioClip jumpSound;
+	public AudioClip landSound;
+	
+	public AudioClip dieSound;
+
 	void Start() {
 		rb2D = GetComponent<Rigidbody2D>();
 		collider2D = GetComponent<BoxCollider2D>();
@@ -71,10 +79,16 @@ public class Controller : MonoBehaviour {
 
 	void Update () {
 		if(!isDead) {
-			UpdateCollisions();
-			UpdateMovement();
 			UpdateVisualMass();
 			CheckForOtherThings();
+		}
+	}
+
+	void FixedUpdate() {
+		UpdateCollisions();
+		UpdateMovement();
+		if(JustLanded) {
+			PlayOnce(landSound);
 		}
 	}
 
@@ -90,6 +104,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	private void OnJump(JumpEvent e) {
+		PlayOnce(jumpSound);
 		queuedJumpVelocity = e.JumpVelocity;
 		
 		var massLoss = e.JumpVelocity.magnitude * massLossWhileJumping;
@@ -128,6 +143,7 @@ public class Controller : MonoBehaviour {
 			MassChangeSource = massChangeSource
 		};
 		MassLost(massChangeEvent);
+		PlaySound(moveSound);
 		if(trueMass <= minMass) {
 			Die();
 		}
@@ -239,7 +255,20 @@ public class Controller : MonoBehaviour {
 			GameManager.PlayerDied();
 			rb2D.velocity = Vector3.zero;
 			rb2D.isKinematic = true;
+			PlayOnce(dieSound);
 			Destroy(gameObject, 0.5f);
+			
 		}
+	}
+
+	void PlaySound(AudioClip sound) {
+		playerSound.clip = sound;
+		if(!playerSound.isPlaying) {
+			playerSound.Play();
+		}
+	}
+
+	void PlayOnce(AudioClip sound) {
+		playerSound.PlayOneShot(sound);
 	}
 }
