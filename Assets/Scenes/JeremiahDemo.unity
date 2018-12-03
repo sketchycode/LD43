@@ -113,6 +113,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &145796828
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4188024113051886, guid: 4e5750216c897a349bb134d8fb5ca305, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.5685204
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188024113051886, guid: 4e5750216c897a349bb134d8fb5ca305, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.8080446
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188024113051886, guid: 4e5750216c897a349bb134d8fb5ca305, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.0015879406
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188024113051886, guid: 4e5750216c897a349bb134d8fb5ca305, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188024113051886, guid: 4e5750216c897a349bb134d8fb5ca305, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188024113051886, guid: 4e5750216c897a349bb134d8fb5ca305, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188024113051886, guid: 4e5750216c897a349bb134d8fb5ca305, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188024113051886, guid: 4e5750216c897a349bb134d8fb5ca305, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e5750216c897a349bb134d8fb5ca305, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &666631173
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +322,6 @@ GameObject:
   m_Component:
   - component: {fileID: 991662504}
   - component: {fileID: 991662505}
-  - component: {fileID: 991662506}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -314,18 +355,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimePatchPrefab: {fileID: 114489963031156402, guid: 06d422548edb35743bef290295d319cd,
     type: 2}
---- !u!114 &991662506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 991662503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb5ca763c6d94b6429cbb4b74a16bb2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  test: {fileID: 0}
 --- !u!1 &1015980116
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +521,7 @@ GameObject:
   - component: {fileID: 1340050612}
   - component: {fileID: 1340050611}
   m_Layer: 0
-  m_Name: Platforms
+  m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

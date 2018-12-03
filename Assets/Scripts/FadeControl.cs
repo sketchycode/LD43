@@ -15,14 +15,13 @@ public class FadeControl {
 
 	public IEnumerator FadeIn() {
 		for(float timer = 0.0f; timer <= 1; timer += Time.deltaTime * fadeSpeed) {
-			Debug.Log("Throwing fade: " + timer);
 			fadePanel.color = Color.Lerp(black, clear, timer);
 			yield return null;
 		}
 	}
 
 	public IEnumerator FadeOut() {
-		for(float timer = 1.0f; timer >= 0.0f; timer += Time.deltaTime * fadeSpeed) {
+		for(float timer = 0.0f; timer <= 1; timer += Time.deltaTime * fadeSpeed) {
 			fadePanel.color = Color.Lerp(clear, black, timer);
 			yield return null;
 		}

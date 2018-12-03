@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -23,9 +24,24 @@ public class GameManager : MonoBehaviour {
         PlayerDied += OnPlayerDied;
     }
 
+    void OnDestroy() {
+        PlayerDied -= OnPlayerDied;
+    }
+
     private void OnPlayerDied() {
         // reset scene? wait for ok?
+        StartCoroutine(ResetScene());
         Debug.Log("got signal for player death");
+    }
+
+    public IEnumerator ResetScene() {
+        StartCoroutine(sceneCamera.fade.FadeOut());
+        for(float timer = 0; timer < 1.5f; timer += Time.deltaTime) {
+            yield return null;
+        }
+
+        StopAllCoroutines();
+        ResetLevel();
     }
 
     public void PlaceSlimeAtTilePosition(Vector2Int pos) {

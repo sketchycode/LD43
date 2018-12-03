@@ -40,6 +40,7 @@ public class Controller : MonoBehaviour {
 	private RaycastHit2D[] colliderHits = new RaycastHit2D[10];
 	private bool isMoving = false;
 	private bool isMovingRight = true;
+	private bool isDead = false;
 	private Tilemap platformsTilemap;
 	private Vector3Int lastTileTouched = new Vector3Int(-9999, -9999, 0);
 
@@ -51,6 +52,7 @@ public class Controller : MonoBehaviour {
 	public bool IsMoving => isMoving && IsGrounded;
 	public bool IsMovingRight => isMovingRight;
 	public bool IsGrounded => collisionInfo.IsGrounded;
+	public bool IsDead => isDead;
 	public bool CanJump => IsGrounded;
 	public bool IsInSlime => OccupiedSlimes.Count > 0;
 
@@ -68,10 +70,12 @@ public class Controller : MonoBehaviour {
 	}
 
 	void Update () {
-		UpdateCollisions();
-		UpdateMovement();
-		UpdateVisualMass();
-		CheckForOtherThings();
+		if(!isDead) {
+			UpdateCollisions();
+			UpdateMovement();
+			UpdateVisualMass();
+			CheckForOtherThings();
+		}
 	}
 
 	private void OnMouseDown() {
@@ -124,13 +128,16 @@ public class Controller : MonoBehaviour {
 			MassChangeSource = massChangeSource
 		};
 		MassLost(massChangeEvent);
+		if(trueMass <= minMass) {
+			Die();
+		}
 	}
 
 	private void UpdateCollisions() {
 		collisionInfo.Reset();
 
 		Vector2 bottomCenter = new Vector2(collider2D.bounds.center.x, collider2D.bounds.min.y);
-		Vector2 size = new Vector2(collider2D.size.x, groundCheckBoxHeight);
+		Vector2 size = new Vector2(collider2D.size.x * transform.localScale.x, groundCheckBoxHeight);
 		var hitCounts = Physics2D.BoxCastNonAlloc(bottomCenter, size, 0, Vector2.zero, colliderHits);
 		if(hitCounts > 0) {
 			for(int i=0; i<hitCounts; i++) {
@@ -207,7 +214,7 @@ public class Controller : MonoBehaviour {
 		if(hitCell != lastTileTouched || collisionInfo.JustGrounded) {
 			if(collisionInfo.JustGrounded) { lastTileTouched = hitCell; }
 			if(platformsTilemap.GetTile(lastTileTouched) != null) {
-				GameManager.Instance.PlaceSlimeAtTilePosition(new Vector2Int(lastTileTouched.x, lastTileTouched.y + 1));
+				GameManager.Instance.PlaceSlimeAtTilePosition(new Vector2Int(lastTileTouched.x, lastTileTouched.y));
 			}
 			lastTileTouched = hitCell;
 		}
@@ -225,5 +232,13 @@ public class Controller : MonoBehaviour {
 	public void BirthSlimeBaby() {
 		GameObject.Instantiate(slimeChunkPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
 		HandleMassLost(1f, MassChangeSourceType.BabyChunk);
+	}
+
+	public void Die() {
+		if(!isDead) {
+			isDead = true;
+			GameManager.PlayerDied();
+			Destroy(gameObject, 0.5f);
+		}
 	}
 }
