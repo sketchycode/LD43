@@ -10,7 +10,11 @@ public class PositionTransition : Interactable {
 	public float toStartTransitionSpeed = 1.0f;
 	public float toEndTransitionSpeed = 1.0f;
 	
-	private float moveTimer = 0.0f;
+	public float moveTimer = 0.0f;
+
+	public AudioSource moveSound;
+	public AudioClip toStartSound;
+	public AudioClip toEndSound;
 
 	public void Start() {
 		if(shouldMoveToEnd) {
@@ -22,12 +26,27 @@ public class PositionTransition : Interactable {
 	void Update () {
 		if(shouldMoveToEnd) {
 			moveTimer += Time.deltaTime * toEndTransitionSpeed;
+			PlaySound(toStartSound);
 		} else {
 			moveTimer -= Time.deltaTime * toStartTransitionSpeed;
+			PlaySound(toEndSound);
 		}
 		moveTimer = Mathf.Clamp(moveTimer, 0, 1);
 		
 		Move();
+	}
+
+	void PlaySound(AudioClip sound) {
+		if(moveTimer < 0.1f || moveTimer > 0.9f) {
+			Debug.Log("SHUTUP");
+			moveSound.Stop();
+			return;
+		}
+
+		moveSound.clip = sound;
+		if(!moveSound.isPlaying) {
+			moveSound.Play();
+		}
 	}
 
 	void Move() {
