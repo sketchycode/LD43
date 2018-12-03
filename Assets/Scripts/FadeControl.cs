@@ -15,7 +15,6 @@ public class FadeControl {
 
 	public IEnumerator FadeIn() {
 		for(float timer = 0.0f; timer <= 1; timer += Time.deltaTime * fadeSpeed) {
-			Debug.Log("Throwing fade: " + timer);
 			fadePanel.color = Color.Lerp(black, clear, timer);
 			yield return null;
 		}

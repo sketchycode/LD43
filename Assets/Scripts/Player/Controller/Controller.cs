@@ -40,6 +40,7 @@ public class Controller : MonoBehaviour {
 	private RaycastHit2D[] colliderHits = new RaycastHit2D[10];
 	private bool isMoving = false;
 	private bool isMovingRight = true;
+	private bool isDead = false;
 	private Tilemap platformsTilemap;
 	private Vector3Int lastTileTouched = new Vector3Int(-9999, -9999, 0);
 
@@ -51,6 +52,7 @@ public class Controller : MonoBehaviour {
 	public bool IsMoving => isMoving && IsGrounded;
 	public bool IsMovingRight => isMovingRight;
 	public bool IsGrounded => collisionInfo.IsGrounded;
+	public bool IsDead => isDead;
 	public bool CanJump => IsGrounded;
 	public bool IsInSlime => OccupiedSlimes.Count > 0;
 
@@ -68,10 +70,12 @@ public class Controller : MonoBehaviour {
 	}
 
 	void Update () {
-		UpdateCollisions();
-		UpdateMovement();
-		UpdateVisualMass();
-		CheckForOtherThings();
+		if(!isDead) {
+			UpdateCollisions();
+			UpdateMovement();
+			UpdateVisualMass();
+			CheckForOtherThings();
+		}
 	}
 
 	private void OnMouseDown() {
@@ -124,6 +128,9 @@ public class Controller : MonoBehaviour {
 			MassChangeSource = massChangeSource
 		};
 		MassLost(massChangeEvent);
+		if(trueMass <= minMass) {
+			Die();
+		}
 	}
 
 	private void UpdateCollisions() {
@@ -225,5 +232,13 @@ public class Controller : MonoBehaviour {
 	public void BirthSlimeBaby() {
 		GameObject.Instantiate(slimeChunkPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
 		HandleMassLost(1f, MassChangeSourceType.BabyChunk);
+	}
+
+	public void Die() {
+		if(!isDead) {
+			isDead = true;
+			GameManager.PlayerDied();
+			Destroy(gameObject, 0.5f);
+		}
 	}
 }

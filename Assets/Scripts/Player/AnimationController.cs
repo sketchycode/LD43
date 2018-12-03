@@ -16,6 +16,7 @@ public class AnimationController : MonoBehaviour {
 	private void Update() {
 		animator.SetBool("isMoving", playerController.IsMoving);
 		animator.SetBool("isGrounded", playerController.IsGrounded);
+		animator.SetBool("isDead", playerController.IsDead);
 		spriteRenderer.flipX = !playerController.IsMovingRight;
 	}
 }

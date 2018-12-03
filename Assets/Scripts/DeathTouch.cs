@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DeathTouch : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collision) {
-		Debug.Log("AOUJWEIU");
-		collision.gameObject.SendMessage("Kill", SendMessageOptions.DontRequireReceiver);
+		collision.gameObject.SendMessage("Die", SendMessageOptions.DontRequireReceiver);
     }
 }
