@@ -181,6 +181,14 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -3.2400002
       objectReference: {fileID: 0}
+    - target: {fileID: 114063632592108988, guid: 067c7026cd7d6e040b33a56eac0e0cd1,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Level 5 - 2
+
+
+        Hot jump'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 067c7026cd7d6e040b33a56eac0e0cd1, type: 2}
   m_IsPrefabAsset: 0

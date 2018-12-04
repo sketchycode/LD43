@@ -653,6 +653,14 @@ Prefab:
       propertyPath: Layers.Array.data[0].render
       value: 
       objectReference: {fileID: 141454354}
+    - target: {fileID: 114092179946956582, guid: e1094739edab8314397e0c4e80d96a9f,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Level 6 - 3
+
+
+        Bum rush!'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1094739edab8314397e0c4e80d96a9f, type: 2}
   m_IsPrefabAsset: 0

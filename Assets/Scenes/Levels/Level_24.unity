@@ -1727,6 +1727,14 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114755868779055026, guid: 9013fcefb7d824f45b3530bf65992b3f,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Level 2 - 4
+
+
+        Double door'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9013fcefb7d824f45b3530bf65992b3f, type: 2}
   m_IsPrefabAsset: 0
