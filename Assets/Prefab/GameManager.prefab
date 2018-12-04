@@ -54,6 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimePatchPrefab: {fileID: 114489963031156402, guid: 06d422548edb35743bef290295d319cd,
     type: 2}
+  levelUIPrefab: {fileID: 223409858420381190, guid: 5dd444ee7a76f27489aac878aa65ac43,
+    type: 2}
 --- !u!212 &212324368500439960
 SpriteRenderer:
   m_ObjectHideFlags: 1
