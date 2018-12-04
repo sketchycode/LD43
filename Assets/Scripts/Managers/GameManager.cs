@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
-        var ui = GameObject.Instantiate(levelUIPrefab);
-        blobBar = ui.GetComponentInChildren<Slider>();
+        //var ui = GameObject.Instantiate(levelUIPrefab);
+        //blobBar = GameObject.Find("BlobBar");
     }
 
     private void Start() {
@@ -109,6 +109,6 @@ public class GameManager : MonoBehaviour {
     }
 
     private void OnMassLost(MassChangeEvent e) {
-        blobBar.value = e.NewMassNormalized;
+        //blobBar.value = e.NewMassNormalized;
     }
 }
