@@ -141,6 +141,7 @@ public class Controller : MonoBehaviour {
 		var massChangeEvent = new MassChangeEvent() {
 			MassDelta = -massLoss,
 			NewMass = trueMass,
+			NewMassNormalized = trueMass / maxMass,
 			MassChangeSource = massChangeSource
 		};
 		MassLost(massChangeEvent);

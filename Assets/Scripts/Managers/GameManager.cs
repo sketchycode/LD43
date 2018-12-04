@@ -4,24 +4,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
+using UnityEngine.Experimental.UIElements;
 
 public class GameManager : MonoBehaviour {
 	public static Action PlayerDied = delegate { };
     public static Action OpenPauseMenu = delegate { };
     public static GameManager Instance;
     private GameObject player;
+    private Controller playerController;
     private CameraController sceneCamera;
 
     [SerializeField] private SlimePatch slimePatchPrefab;
+    [SerializeField] private Canvas levelUIPrefab;
 
     private Dictionary<int, SlimePatch> slimeTracker = new Dictionary<int, SlimePatch>();
+    private Slider blobBar;
 
     private void Awake() {
         Instance = this;
+        var ui = GameObject.Instantiate(levelUIPrefab);
+        blobBar = ui.GetComponentInChildren<Slider>();
     }
 
     private void Start() {
         PlayerDied += OnPlayerDied;
+    }
+
+    private void Update() {
     }
 
     void OnDestroy() {
@@ -78,6 +87,10 @@ public class GameManager : MonoBehaviour {
     void ResetSceneParameters() {
         player = null;
         sceneCamera = null;
+        if(playerController) {
+            playerController.MassLost -= OnMassLost;
+            playerController = null;
+        }
     }
 
     public void SetPlayer(GameObject player) {
@@ -85,9 +98,17 @@ public class GameManager : MonoBehaviour {
         if(sceneCamera) {
             sceneCamera.SetTarget(player.transform);
         }
+        playerController = player.GetComponent<Controller>();
+        if(playerController) {
+            playerController.MassLost += OnMassLost;
+        }
     }
 
     public void SetCamera(CameraController camera) {
         this.sceneCamera = camera;
+    }
+
+    private void OnMassLost(MassChangeEvent e) {
+        blobBar.value = e.NewMassNormalized;
     }
 }
