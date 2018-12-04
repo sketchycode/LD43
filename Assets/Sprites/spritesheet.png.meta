@@ -87,6 +87,8 @@ TextureImporter:
     21300164: wall_jungle_01
     21300166: wall_jungle_02
     21300168: wall_jungle_03
+    21300170: earth_special_01
+    21300172: clock_special_01
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -1824,6 +1826,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 353579b08b697954ea153d87ccd50988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: earth_special_01
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2adeac35c25ff34081f5126da2e4aa2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clock_special_01
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 23
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 139f6d91a15c5d545906c87c46576636
       vertices: []
       indices: 
       edges: []
