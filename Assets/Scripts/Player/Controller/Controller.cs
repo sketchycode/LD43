@@ -141,7 +141,7 @@ public class Controller : MonoBehaviour {
 		var massChangeEvent = new MassChangeEvent() {
 			MassDelta = -massLoss,
 			NewMass = trueMass,
-			NewMassNormalized = trueMass / maxMass,
+			NewMassNormalized = Mathf.InverseLerp(minMass, maxMass, trueMass),
 			MassChangeSource = massChangeSource
 		};
 		MassLost(massChangeEvent);
