@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
-using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 	public static Action PlayerDied = delegate { };
@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
-        //var ui = GameObject.Instantiate(levelUIPrefab);
-        //blobBar = GameObject.Find("BlobBar");
+        var ui = GameObject.Instantiate(levelUIPrefab);
+        blobBar = ui.GetComponentInChildren<Slider>();
     }
 
     private void Start() {
@@ -109,6 +109,6 @@ public class GameManager : MonoBehaviour {
     }
 
     private void OnMassLost(MassChangeEvent e) {
-        //blobBar.value = e.NewMassNormalized;
+        blobBar.value = e.NewMassNormalized;
     }
 }
