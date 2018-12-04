@@ -12,6 +12,8 @@ public class PositionTransition : Interactable {
 	
 	public float moveTimer = 0.0f;
 
+	public GameObject deathTouchOnClose;
+
 	public AudioSource moveSound;
 	public AudioClip toStartSound;
 	public AudioClip toEndSound;
@@ -34,6 +36,21 @@ public class PositionTransition : Interactable {
 		moveTimer = Mathf.Clamp(moveTimer, 0, 1);
 		
 		Move();
+		if(deathTouchOnClose) {
+			SetDeathTouch();
+		}
+	}
+
+	void SetDeathTouch() {
+		if(moveTimer < 0.1f || moveTimer > 0.9f) {
+			if(!deathTouchOnClose.activeSelf) {
+				deathTouchOnClose.SetActive(true);
+			}
+		} else {
+			if(deathTouchOnClose.activeSelf) {
+				deathTouchOnClose.SetActive(false);
+			}
+		}
 	}
 
 	void PlaySound(AudioClip sound) {
