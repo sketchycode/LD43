@@ -104,6 +104,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	private void OnJump(JumpEvent e) {
+		playerSound.Stop();
 		PlayOnce(jumpSound);
 		queuedJumpVelocity = e.JumpVelocity;
 		
@@ -143,7 +144,6 @@ public class Controller : MonoBehaviour {
 			MassChangeSource = massChangeSource
 		};
 		MassLost(massChangeEvent);
-		PlaySound(moveSound);
 		if(trueMass <= minMass) {
 			Die();
 		}
@@ -194,6 +194,9 @@ public class Controller : MonoBehaviour {
 			}
 
 			var massDelta = massLossWhileMoving * Time.deltaTime;
+			if(IsGrounded) {
+				PlaySound(moveSound);
+			}
 			HandleMassLost(massDelta, MassChangeSourceType.Moving);
 		}
 		else if(IsGrounded && !IsInSlime) {
