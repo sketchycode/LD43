@@ -186,11 +186,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 580247640}
   m_Script: {fileID: 11500000, guid: d31fdc7e81a7076478c0939926927fab, type: 3}
---- !u!23 &141454354 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 23748897097634056, guid: e1094739edab8314397e0c4e80d96a9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 756059522}
 --- !u!1001 &212370953
 Prefab:
   m_ObjectHideFlags: 0
@@ -433,11 +428,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 224098241605910748, guid: e1094739edab8314397e0c4e80d96a9f,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4398662454927698, guid: e1094739edab8314397e0c4e80d96a9f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.17
@@ -470,11 +460,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114620180037180772, guid: e1094739edab8314397e0c4e80d96a9f,
-        type: 2}
-      propertyPath: Layers.Array.data[0].render
-      value: 
-      objectReference: {fileID: 141454354}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1094739edab8314397e0c4e80d96a9f, type: 2}
   m_IsPrefabAsset: 0
