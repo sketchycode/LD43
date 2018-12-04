@@ -2184,6 +2184,14 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114988224799608240, guid: d819a3141a152344086906c0e0f1e857,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Level 1 - 3
+
+
+        Left or Right?'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d819a3141a152344086906c0e0f1e857, type: 2}
   m_IsPrefabAsset: 0
